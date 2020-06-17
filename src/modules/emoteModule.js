@@ -234,7 +234,7 @@ EmoteModule.prototype.downloadEmotes = function(emoteMeta) {
             if (typeof(emoteMeta.parser) === "function") parsedData = emoteMeta.parser(parsedData);
 
             for (const emote in parsedData) {
-                if (emote.length < 4 || bemotes.includes(emote)) {
+                if (emote.length < 2 || bemotes.includes(emote)) {
                     delete parsedData[emote];
                     continue;
                 }
