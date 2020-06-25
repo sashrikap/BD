@@ -14,16 +14,16 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <o:DocumentProperties>
   <o:Author>Nick Yao</o:Author>
   <o:LastAuthor>Nick Yao</o:LastAuthor>
-  <o:Revision>4</o:Revision>
-  <o:TotalTime>0</o:TotalTime>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
   <o:Created>2020-06-25T04:50:00Z</o:Created>
-  <o:LastSaved>2020-06-25T04:50:00Z</o:LastSaved>
+  <o:LastSaved>2020-06-25T04:55:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
   <o:Words>24</o:Words>
-  <o:Characters>142</o:Characters>
+  <o:Characters>137</o:Characters>
   <o:Lines>1</o:Lines>
   <o:Paragraphs>1</o:Paragraphs>
-  <o:CharactersWithSpaces>165</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>160</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -51,6 +51,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
    <w:BreakWrappedTables/>
    <w:SplitPgBreakAndParaMark/>
   </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
   <m:mathPr>
    <m:mathFont m:val="Cambria Math"/>
    <m:brkBin m:val="before"/>
@@ -654,6 +655,28 @@ xmlns="http://www.w3.org/TR/REC-html40">
 	mso-generic-font-family:roman;
 	mso-font-pitch:variable;
 	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:DengXian;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\7B49\7EBF;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610612033 953122042 22 0 262159 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-536869121 64767 1 0 415 0;}
+@font-face
+	{font-family:"\@DengXian";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610612033 953122042 22 0 262159 0;}
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{mso-style-unhide:no;
@@ -666,6 +689,19 @@ xmlns="http://www.w3.org/TR/REC-html40">
 	font-family:"Times New Roman",serif;
 	mso-fareast-font-family:DengXian;
 	mso-fareast-theme-font:minor-fareast;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Plain Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.5pt;
+	font-family:Consolas;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
 p.msonormal0, li.msonormal0, div.msonormal0
 	{mso-style-name:msonormal;
 	mso-style-unhide:no;
@@ -678,9 +714,22 @@ p.msonormal0, li.msonormal0, div.msonormal0
 	font-family:"Times New Roman",serif;
 	mso-fareast-font-family:DengXian;
 	mso-fareast-theme-font:minor-fareast;}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Plain Text";
+	mso-ansi-font-size:10.5pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:Consolas;
+	mso-ascii-font-family:Consolas;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Consolas;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
 .MsoChpDefault
 	{mso-style-type:export-only;
 	mso-default-props:yes;
@@ -726,16 +775,8 @@ div.WordSection1
 
 <div class=WordSection1>
 
-<p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>{&quot;<span
-class=SpellE>sashu</span>&quot;:&quot;<span class=SpellE>sashu</span>&quot;,
-&quot;<span class=SpellE>sush</span>&quot;:&quot;<span class=SpellE>sush</span>&quot;,
-&quot;<span class=SpellE>doggie&quot;:&quot;doggie</span>&quot;, &quot;<span
-class=SpellE>putinW</span>&quot;:&quot;<span class=SpellE>putinW</span>&quot;,
-&quot;<span class=SpellE>socks&quot;:&quot;socks</span>&quot;,
-&quot;doggie2&quot;:&quot;doggie2&quot;, &quot;<span class=SpellE>doggiesmile</span>&quot;:&quot;<span
-class=SpellE>doggiesmile</span>&quot;,&quot;<span class=SpellE>ohio</span>&quot;:&quot;<span
-class=SpellE>ohio</span>&quot;,&quot;<span class=SpellE>owen</span>&quot;:&quot;<span
-class=SpellE>owen</span>&quot;}<o:p></o:p></span></p>
+<p class=MsoPlainText><span style='font-family:"Courier New"'>{&quot;sashu&quot;:&quot;sashu&quot;,&quot;sush&quot;:&quot;sush&quot;,&quot;doggie&quot;:&quot;doggie&quot;,&quot;putinW&quot;:&quot;putinW&quot;,
+&quot;socks&quot;:&quot;socks&quot;,&quot;doggie2&quot;:&quot;doggie2&quot;,&quot;doggiesmile&quot;:&quot;doggiesmile&quot;,&quot;ohio&quot;:&quot;ohio&quot;,&quot;owen&quot;:&quot;owen&quot;}<o:p></o:p></span></p>
 
 </div>
 
