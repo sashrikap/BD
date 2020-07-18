@@ -1,8 +1,8 @@
-* {
+/** {
     font-family: "Comic Sans MS", cursive, sans-serif;
     background-color: #ff6ec7;
     color: #ff6ec7;
-}
+}*/
 
 :root {
   --bd-blue: #3E82E5;
@@ -2134,7 +2134,7 @@ body .ace_closeButton:active {
   top: 4px;
   width: 16px;
   display: inline-flex;
-  
+
 }
 
 .bd-member-badge {
