@@ -1,3 +1,9 @@
+* {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #ff6ec7;
+    color: #ff6ec7;
+}
+
 :root {
   --bd-blue: #3E82E5;
   --bd-blue-hover: rgb(56,117,206);
