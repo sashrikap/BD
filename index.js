@@ -82,7 +82,7 @@ const BetterDiscord = class BetterDiscord {
         Utils.log("Using hash: " + config.hash);
     }
 
-    async getUpdater() {
+   /* async getUpdater() {
         Utils.log("Getting updater");
         let remoteConfig = await Utils.getUpdater(config.repo, config.injectorBranch);
         if (!remoteConfig)  {
@@ -93,7 +93,7 @@ const BetterDiscord = class BetterDiscord {
         }
         config.latestVersion = remoteConfig.version;
         Utils.log("Latest Version: " + config.latestVersion);
-    }
+    } */
 
     ensureFolders() {
         Utils.makeFolder(config.dataPath);
@@ -138,7 +138,7 @@ const BetterDiscord = class BetterDiscord {
 
     async load() {
         Utils.log("Hooked dom-ready");
-        await this.getUpdater();
+        //await this.getUpdater();
         await this.getCommitHash();
 
         Utils.log("Loading");
