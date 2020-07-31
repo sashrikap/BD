@@ -2049,7 +2049,7 @@
             t(s, (t, s, r) => {
                 if (t) return F.err("Emotes", "Could not download " + e.variable, t), o({});
                 "function" == typeof e.parser && (r = e.parser(r));
-                for (const t in r) t.length < 4 || g.includes(t) ? delete r[t] : r[t] = e.getEmoteURL(r[t]);
+                for (const t in r) t.length < 1 || g.includes(t) ? delete r[t] : r[t] = e.getEmoteURL(r[t]);
                 n(r), F.log("Emotes", "Downloaded: " + e.variable)
             })
         })
