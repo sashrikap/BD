@@ -1953,7 +1953,7 @@
                                     i = r[0];
                                 let a = r[1] ? r[1] : "",
                                     c = a.slice(0);
-                                if (i.length < 4 || g.includes(i)) continue;
+                                if (i.length < 2 || g.includes(i)) continue;
                                 this.modifiers.includes(a) && u["bda-es-8"] || (a = ""), this.overrides.includes(c) ? a = c : c = "";
                                 let l = this.categories[n];
                                 if ("twitch" === c ? w.TwitchGlobal[i] ? l = "TwitchGlobal" : w.TwitchSubscriber[i] && (l = "TwitchSubscriber") : "bttv" === c ? w.BTTV[i] ? l = "BTTV" : w.BTTV2[i] && (l = "BTTV2") : "ffz" === c && w.FrankerFaceZ[i] && (l = "FrankerFaceZ"), !w[l][i] || !u[E[l]]) continue;
