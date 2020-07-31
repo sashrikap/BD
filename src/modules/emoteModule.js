@@ -23,31 +23,31 @@ EmoteModule.prototype.init = async function () {
 
     const emoteInfo = {
         TwitchGlobal: {
-            url: `https://rauenzi.github.io/BetterDiscordApp/data/emotedata_twitch_global.json`,
+            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_twitch_global.json`,
             variable: "TwitchGlobal",
             oldVariable: "emotesTwitch",
             getEmoteURL: (e) => `https://static-cdn.jtvnw.net/emoticons/v1/${e}/1.0`
         },
         TwitchSubscriber: {
-            url: `https://rauenzi.github.io/BetterDiscordApp/data/emotedata_twitch_subscriber.json`,
+            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_twitch_subscriber.json`,
             variable: "TwitchSubscriber",
             oldVariable: "subEmotesTwitch",
             getEmoteURL: (e) => `https://static-cdn.jtvnw.net/emoticons/v1/${e}/1.0`
         },
         FrankerFaceZ: {
-            url: `https://rauenzi.github.io/BetterDiscordApp/data/emotedata_ffz.json`,
+            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_ffz.json`,
             variable: "FrankerFaceZ",
             oldVariable: "emotesFfz",
             getEmoteURL: (e) => `https://cdn.frankerfacez.com/emoticon/${e}/1`
         },
         BTTV: {
-            url: `https://rauenzi.github.io/BetterDiscordApp/data/emotedata_bttv.json`,
+            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_bttv.json`,
             variable: "BTTV",
             oldVariable: "emotesBTTV",
             getEmoteURL: (e) => `https://cdn.betterttv.net/emote/${e}/1x`
         },
         BTTV2: {
-            url: `https://rauenzi.github.io/BetterDiscordApp/data/emotedata_bttv2.json`,
+            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_bttv2.json`,
             variable: "BTTV2",
             oldVariable: "emotesBTTV2",
             getEmoteURL: (e) => `https://cdn.betterttv.net/emote/${e}/1x`
@@ -56,7 +56,7 @@ EmoteModule.prototype.init = async function () {
 
     if (bdConfig.local) return;
 
-    await this.getBlacklist();
+    await this.getBlockedEmotes();
     await this.loadEmoteData(emoteInfo);
 
     while (!BDV2.MessageComponent) await new Promise(resolve => setTimeout(resolve, 100));
@@ -77,7 +77,7 @@ EmoteModule.prototype.init = async function () {
                     let emoteModifier = emoteSplit[1] ? emoteSplit[1] : "";
                     let emoteOverride = emoteModifier.slice(0);
 
-                    if (emoteName.length < 2 || bemotes.includes(emoteName)) continue;
+                    if (emoteName.length < 4 || bemotes.includes(emoteName)) continue;
                     if (!this.modifiers.includes(emoteModifier) || !settingsCookie["bda-es-8"]) emoteModifier = "";
                     if (!this.overrides.includes(emoteOverride)) emoteOverride = "";
                     else emoteModifier = emoteOverride;
@@ -198,8 +198,13 @@ EmoteModule.prototype.loadEmoteData = async function(emoteInfo) {
 
     for (const e in emoteInfo) {
         await new Promise(r => setTimeout(r, 1000));
-        const data = await this.downloadEmotes(emoteInfo[e]);
-        bdEmotes[emoteInfo[e].variable] = data;
+        try {
+            const data = await this.downloadEmotes(emoteInfo[e]);
+            bdEmotes[emoteInfo[e].variable] = data;
+        }
+        catch (err) {
+            bdEmotes[emoteInfo[e].variable] = {};
+        }
     }
 
     if (settingsCookie["fork-ps-2"]) Utils.showToast("All emotes successfully downloaded.", {type: "success"});
@@ -209,10 +214,11 @@ EmoteModule.prototype.loadEmoteData = async function(emoteInfo) {
 };
 
 EmoteModule.prototype.downloadEmotes = function(emoteMeta) {
+    emoteMeta.url = Utils.formatString(emoteMeta.url, {hash: bdConfig.hash});
     const request = require("request");
     const options = {
         url: emoteMeta.url,
-        timeout: emoteMeta.timeout ? emoteMeta.timeout : 5000,
+        timeout: emoteMeta.timeout ? emoteMeta.timeout : 12000,
         json: true
     };
 
@@ -222,19 +228,13 @@ EmoteModule.prototype.downloadEmotes = function(emoteMeta) {
         request(options, (error, response, parsedData) => {
             if (error) {
                 Utils.err("Emotes", "Could not download " + emoteMeta.variable, error);
-                if (emoteMeta.backup) {
-                    emoteMeta.url = emoteMeta.backup;
-                    emoteMeta.backup = null;
-                    if (emoteMeta.backupParser) emoteMeta.parser = emoteMeta.backupParser;
-                    return resolve(this.downloadEmotes(emoteMeta));
-                }
                 return reject({});
             }
 
             if (typeof(emoteMeta.parser) === "function") parsedData = emoteMeta.parser(parsedData);
 
             for (const emote in parsedData) {
-                if (emote.length < 2 || bemotes.includes(emote)) {
+                if (emote.length < 4 || bemotes.includes(emote)) {
                     delete parsedData[emote];
                     continue;
                 }
@@ -246,11 +246,11 @@ EmoteModule.prototype.downloadEmotes = function(emoteMeta) {
     });
 };
 
-EmoteModule.prototype.getBlacklist = function () {
+EmoteModule.prototype.getBlockedEmotes = function () {
     return new Promise(resolve => {
-        require("request").get({url: "https://rauenzi.github.io/BetterDiscordApp/data/emotefilter.json", json: true}, function (err, resp, data) {
+        require("request").get({url: Utils.formatString("https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotefilter.json", {hash: bdConfig.hash}), json: true}, function (err, resp, data) {
             if (err) return resolve(bemotes);
-            resolve(bemotes.splice(0, 0, ...data.blacklist));
+            resolve(bemotes.splice(0, 0, ...data));
         });
     });
 };
