@@ -1920,7 +1920,7 @@
                 url: "https://voark147.github.io/BD/data/emotedata_ffz.json",
                 variable: "FrankerFaceZ",
                 oldVariable: "emotesFfz",
-                getEmoteURL: e => `https://cdn.frankerfacez.com/emoticon/${e}/1`
+                getEmoteURL: e => `https://cdn.frankerfacez.com/emoticon/${e}/4`
             },
             BTTV: {
                 url: "https://voark147.github.io/BD/data/emotedata_bttv.json",
