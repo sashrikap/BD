@@ -1905,7 +1905,7 @@
         this.modifiers = ["flip", "spin", "pulse", "spin2", "spin3", "1spin", "2spin", "3spin", "tr", "bl", "br", "shake", "shake2", "shake3", "flap"], this.overrides = ["twitch", "bttv", "ffz"];
         const e = {
             TwitchGlobal: {
-                url: "assetsemotedata_twitch_global.json",
+                url: "https://voark147.github.io/BD/data/emotedata_twitch_global.json",
                 variable: "TwitchGlobal",
                 oldVariable: "emotesTwitch",
                 getEmoteURL: e => `https://static-cdn.jtvnw.net/emoticons/v1/${e}/1.0`
@@ -1920,7 +1920,7 @@
                 url: "https://voark147.github.io/BD/data/emotedata_ffz.json",
                 variable: "FrankerFaceZ",
                 oldVariable: "emotesFfz",
-                getEmoteURL: e => `https://cdn.frankerfacez.com/emoticon/${e}/4`
+                getEmoteURL: e => `https://cdn.frankerfacez.com/emoticon/${e}/1`
             },
             BTTV: {
                 url: "https://voark147.github.io/BD/data/emotedata_bttv.json",
