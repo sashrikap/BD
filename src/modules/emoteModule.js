@@ -23,34 +23,34 @@ EmoteModule.prototype.init = async function () {
 
     const emoteInfo = {
         TwitchGlobal: {
-            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_twitch_global.json`,
+            url: `https://voark147.github.io/BD/data/emotedata_twitch_global.json`,
             variable: "TwitchGlobal",
             oldVariable: "emotesTwitch",
             getEmoteURL: (e) => `https://static-cdn.jtvnw.net/emoticons/v1/${e}/1.0`
         },
         TwitchSubscriber: {
-            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_twitch_subscriber.json`,
+            url: `https://voark147.github.io/BD/data/emotedata_twitch_subscriber.json`,
             variable: "TwitchSubscriber",
             oldVariable: "subEmotesTwitch",
             getEmoteURL: (e) => `https://static-cdn.jtvnw.net/emoticons/v1/${e}/1.0`
         },
         FrankerFaceZ: {
-            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_ffz.json`,
+            url: `https://voark147.github.io/BD/data/emotedata_ffz.json`,
             variable: "FrankerFaceZ",
             oldVariable: "emotesFfz",
             getEmoteURL: (e) => `https://cdn.frankerfacez.com/emoticon/${e}/1`
         },
         BTTV: {
-            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_bttv.json`,
+            url: `https://voark147.github.io/BD/data/emotedata_bttv.json`,
             variable: "BTTV",
             oldVariable: "emotesBTTV",
             getEmoteURL: (e) => `https://cdn.betterttv.net/emote/${e}/1x`
         },
         BTTV2: {
-            url: `https://cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/assets/emotedata_bttv2.json`,
+            url: `https://voark147.github.io/BD/data/emotedata_bttv2.json`,
             variable: "BTTV2",
             oldVariable: "emotesBTTV2",
-            getEmoteURL: (e) => `https://cdn.betterttv.net/emote/${e}/1x`
+            getEmoteURL: (e) => `https://voark147.github.io/BD/data/custom_emotes/${e}.png`
         }
     };
 
