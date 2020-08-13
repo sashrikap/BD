@@ -77,7 +77,7 @@ EmoteModule.prototype.init = async function () {
                     let emoteModifier = emoteSplit[1] ? emoteSplit[1] : "";
                     let emoteOverride = emoteModifier.slice(0);
 
-                    if (emoteName.length < 4 || bemotes.includes(emoteName)) continue;
+                    if (emoteName.length < 2 || bemotes.includes(emoteName)) continue;
                     if (!this.modifiers.includes(emoteModifier) || !settingsCookie["bda-es-8"]) emoteModifier = "";
                     if (!this.overrides.includes(emoteOverride)) emoteOverride = "";
                     else emoteModifier = emoteOverride;
@@ -234,7 +234,7 @@ EmoteModule.prototype.downloadEmotes = function(emoteMeta) {
             if (typeof(emoteMeta.parser) === "function") parsedData = emoteMeta.parser(parsedData);
 
             for (const emote in parsedData) {
-                if (emote.length < 4 || bemotes.includes(emote)) {
+                if (emote.length < 2 || bemotes.includes(emote)) {
                     delete parsedData[emote];
                     continue;
                 }
