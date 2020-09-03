@@ -58,10 +58,11 @@ export const settings = {
     "BetterTTV Emotes":           {id: "bda-es-2",  info: "Show BetterTTV Emotes",                             implemented: true,  hidden: false, cat: "emote"},
     "Emote Menu":                 {id: "bda-es-0",  info: "Show Twitch/Favourite emotes in emote menu",        implemented: true,  hidden: false, cat: "emote"},
     "Emoji Menu":                 {id: "bda-es-9",  info: "Show Discord emoji menu",                           implemented: true,  hidden: false, cat: "emote"},
-    "Emote Auto Capitalization":  {id: "bda-es-4",  info: "Autocapitalize emote commands",                     implemented: false, hidden: false, cat: "emote"},
+    "Emote Auto Capitalization":  {id: "bda-es-4",  info: "Autocapitalize emote commands",    implemented: false, hidden: false, cat: "emote"},
     "Show Names":                 {id: "bda-es-6",  info: "Show emote names on hover",                         implemented: true,  hidden: false, cat: "emote"},
     "Show emote modifiers":       {id: "bda-es-8",  info: "Enable emote mods (flip, spin, pulse, spin2, spin3, 1spin, 2spin, 3spin, tr, bl, br, shake, shake2, shake3, flap)", implemented: true,  hidden: false, cat: "emote"},
-    "Animate On Hover":           {id: "fork-es-2", info: "Only animate the emote modifiers on hover", implemented: true,  hidden: false, cat: "emote"}
+    "Animate On Hover":           {id: "fork-es-2", info: "Only animate the emote modifiers on hover", implemented: true,  hidden: false, cat: "emote"},
+    "Sashu mode":              {id: "custom-1",  info: "Sashu mode",                                implemented: true,  hidden: false, cat: "emote"},
 };
 
 export const defaultCookie = {
@@ -96,7 +97,8 @@ export const defaultCookie = {
     "fork-wp-1": false,
     "fork-wp-2": false,
     "fork-beta": true,
-    "reactDevTools": false
+    "reactDevTools": false,
+    "custom-1": false,
 };
 
 
@@ -127,7 +129,7 @@ export const bdEmoteSettingIDs = {
     TwitchSubscriber: "bda-es-7",
     BTTV: "bda-es-2",
     FrankerFaceZ: "bda-es-1",
-    BTTV2: "bda-es-2"
+    BTTV2: "bda-es-2",
 };
 
 export const bdthemes = {};

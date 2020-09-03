@@ -4,6 +4,7 @@ import BDV2 from "./v2";
 import Utils from "./utils";
 
 import BDEmote from "../ui/bdEmote";
+import { settings } from "cluster";
 
 function EmoteModule() {
     Object.defineProperty(this, "categories", {
@@ -65,19 +66,29 @@ EmoteModule.prototype.init = async function () {
     this.cancelEmoteRender = Utils.monkeyPatch(BDV2.MessageComponent, "default", {before: ({methodArguments}) => {
         const nodes = methodArguments[0].childrenMessageContent.props.content;
         if (!nodes || !nodes.length) return;
+        const nodeSplit = nodes[0].split(" ");
         for (let n = 0; n < nodes.length; n++) {
             const node = nodes[n];
             if (typeof(node) !== "string") continue;
-            const words = node.split(/([^\s]+)([\s]|$)/g);
+            let words = node.split(/([^\s]+)([\s]|$)/g);
+            if (settingsCookie["custom-1"]){
+                for (let i = 0; i < words.length; i++){
+                    if (words[i] != "" && words[i] != " "){
+                        words[i] = "sashu";
+                    }
+                }
+                const sashuString = "sashu ";
+                nodes[n] = sashuString.repeat((words.length - 1) / 3);
+            }
             for (let c = 0, clen = this.categories.length; c < clen; c++) {
                 for (let w = 0, wlen = words.length; w < wlen; w++) {
                     const emote = words[w];
                     const emoteSplit = emote.split(":");
-                    const emoteName = emoteSplit[0];
+                    const emoteName = (settingsCookie['custom-1'] === false) ? emoteSplit[0] : "sashu";
                     let emoteModifier = emoteSplit[1] ? emoteSplit[1] : "";
                     let emoteOverride = emoteModifier.slice(0);
 
-                    if (emoteName.length < 2 || bemotes.includes(emoteName)) continue;
+                    if (emoteName.length < 1 || bemotes.includes(emoteName)) continue;
                     if (!this.modifiers.includes(emoteModifier) || !settingsCookie["bda-es-8"]) emoteModifier = "";
                     if (!this.overrides.includes(emoteOverride)) emoteOverride = "";
                     else emoteModifier = emoteOverride;
@@ -94,14 +105,18 @@ EmoteModule.prototype.init = async function () {
                     else if (emoteOverride === "ffz") {
                         if (bdEmotes.FrankerFaceZ[emoteName]) current = "FrankerFaceZ";
                     }
-
                     if (!bdEmotes[current][emoteName] || !settingsCookie[bdEmoteSettingIDs[current]]) continue;
                     const results = nodes[n].match(new RegExp(`([\\s]|^)${Utils.escape(emoteModifier ? emoteName + ":" + emoteModifier : emoteName)}([\\s]|$)`));
                     if (!results) continue;
                     const pre = nodes[n].substring(0, results.index + results[1].length);
                     const post = nodes[n].substring(results.index + results[0].length - results[2].length);
                     nodes[n] = pre;
-                    const emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                    if (settingsCookie["custom-1"]){
+                        var emoteComponent = BDV2.react.createElement(BDEmote, {name: nodeSplit[n/2], url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                    }
+                    else{
+                        var emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                    }
                     nodes.splice(n + 1, 0, post);
                     nodes.splice(n + 1, 0, emoteComponent);
                 }
