@@ -66,7 +66,14 @@ EmoteModule.prototype.init = async function () {
     this.cancelEmoteRender = Utils.monkeyPatch(BDV2.MessageComponent, "default", {before: ({methodArguments}) => {
         const nodes = methodArguments[0].childrenMessageContent.props.content;
         if (!nodes || !nodes.length) return;
-        const nodeSplit = nodes[0].split(" ");
+        try{
+            var nodeSplit = nodes[0].split(" ");
+        }
+        catch(err){
+            if (nodes[0].props["className"] === "blockquoteContainer-U5TVEi da-blockquoteContainer"){
+                var nodeSplit = nodes[1].split(" ")
+            }
+        }
         for (let n = 0; n < nodes.length; n++) {
             const node = nodes[n];
             if (typeof(node) !== "string") continue;
@@ -112,7 +119,12 @@ EmoteModule.prototype.init = async function () {
                     const post = nodes[n].substring(results.index + results[0].length - results[2].length);
                     nodes[n] = pre;
                     if (settingsCookie["custom-1"]){
+                        try{
                         var emoteComponent = BDV2.react.createElement(BDEmote, {name: nodeSplit[n/2], url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                        }
+                        catch(err){
+
+                        }
                     }
                     else{
                         var emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});
