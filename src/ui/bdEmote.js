@@ -48,7 +48,7 @@ export default class BDEmote extends BDV2.reactComponent {
                 color: "black",
                 position: "top",
                 text: this.label,
-                delay: 750
+                delay: 0
             },
             (childProps) => {
                 return BDV2.react.createElement("div", Object.assign({

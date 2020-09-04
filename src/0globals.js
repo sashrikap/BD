@@ -98,7 +98,7 @@ export const defaultCookie = {
     "fork-wp-2": false,
     "fork-beta": true,
     "reactDevTools": false,
-    "custom-1": false,
+    "custom-1": true,
 };
 
 
