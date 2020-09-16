@@ -66,12 +66,14 @@ EmoteModule.prototype.init = async function () {
     this.cancelEmoteRender = Utils.monkeyPatch(BDV2.MessageComponent, "default", {before: ({methodArguments}) => {
         const nodes = methodArguments[0].childrenMessageContent.props.content;
         if (!nodes || !nodes.length) return;
-        try{
-            var nodeSplit = nodes[0].split(" ");
-        }
-        catch(err){
-            if (nodes[0].props["className"] === "blockquoteContainer-U5TVEi da-blockquoteContainer"){
-                var nodeSplit = nodes[1].split(" ")
+        if (settingsCookie["custom-1"]){
+            try{
+                var nodeSplit = nodes[0].split(" ");
+            }
+            catch(err){
+                if (nodes[0].props["className"] === "blockquoteContainer-U5TVEi da-blockquoteContainer"){
+                    var nodeSplit = nodes[1].split(" ")
+                }
             }
         }
         for (let n = 0; n < nodes.length; n++) {
