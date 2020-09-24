@@ -176,7 +176,8 @@ EmoteModule.prototype.clearEmoteData = async function() {
 };
 
 EmoteModule.prototype.isCacheValid = function() {
-    const cacheLength = DataStore.getBDData("emoteCacheDays") || DataStore.setBDData("emoteCacheDays", 7) || 7;
+    //const cacheLength = DataStore.getBDData("emoteCacheDays") || DataStore.setBDData("emoteCacheDays", 7) || 7;
+    const cacheLength = -1;
     const cacheDate = new Date(DataStore.getBDData("emoteCacheDate") || null);
     const currentDate = new Date();
     const daysBetween = Math.round(Math.abs((currentDate.getTime() - cacheDate.getTime()) / (24 * 60 * 60 * 1000)));
