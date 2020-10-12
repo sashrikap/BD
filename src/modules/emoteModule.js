@@ -11,7 +11,8 @@ function EmoteModule() {
         get: function() {
             const cats = [];
             for (const current in bdEmoteSettingIDs) {
-                if (settingsCookie[bdEmoteSettingIDs[current]]) cats.push(current);
+                //if (settingsCookie[bdEmoteSettingIDs[current]]) cats.push(current);
+                if (true) cats.push(current);
             }
             return cats;
         }
@@ -114,7 +115,8 @@ EmoteModule.prototype.init = async function () {
                     else if (emoteOverride === "ffz") {
                         if (bdEmotes.FrankerFaceZ[emoteName]) current = "FrankerFaceZ";
                     }
-                    if (!bdEmotes[current][emoteName] || !settingsCookie[bdEmoteSettingIDs[current]]) continue;
+                    //if (!bdEmotes[current][emoteName] || !settingsCookie[bdEmoteSettingIDs[current]]) continue;
+                    if (!bdEmotes[current][emoteName]) continue;
                     const results = nodes[n].match(new RegExp(`([\\s]|^)${Utils.escape(emoteModifier ? emoteName + ":" + emoteModifier : emoteName)}([\\s]|$)`));
                     if (!results) continue;
                     const pre = nodes[n].substring(0, results.index + results[1].length);
@@ -122,14 +124,23 @@ EmoteModule.prototype.init = async function () {
                     nodes[n] = pre;
                     if (settingsCookie["custom-1"]){
                         try{
-                        var emoteComponent = BDV2.react.createElement(BDEmote, {name: nodeSplit[n/2], url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                        if (nodeSplit[n/2] === 'sashu'){
+                            var emoteComponent = BDV2.react.createElement(BDEmote, {name: 'sashu', url: `https://voark.github.io/BD/data/custom_emotes/sashu.png`, modifier: emoteModifier});
+                        }
+                        else{
+                            var emoteComponent = BDV2.react.createElement(BDEmote, {name: nodeSplit[n/2], url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                        }
                         }
                         catch(err){
-
                         }
                     }
                     else{
-                        var emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                        if (emoteName === 'sashu'){
+                            var emoteComponent = BDV2.react.createElement(BDEmote, {name: 'sashu', url: `https://voark.github.io/BD/data/custom_emotes/sashu.png`, modifier: emoteModifier});
+                        }
+                        else{
+                            var emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});
+                        }
                     }
                     nodes.splice(n + 1, 0, post);
                     nodes.splice(n + 1, 0, emoteComponent);
@@ -223,7 +234,7 @@ EmoteModule.prototype.loadEmoteData = async function(emoteInfo) {
         await new Promise(r => fs.unlink(file, r));
     }
 
-    if (!settingsCookie["fork-es-3"]) return;
+    //if (!settingsCookie["fork-es-3"]) return;
     if (settingsCookie["fork-ps-2"]) Utils.showToast("Downloading emotes in the background do not reload.", {type: "info"});
 
     for (const e in emoteInfo) {
