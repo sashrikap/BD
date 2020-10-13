@@ -24,8 +24,8 @@ const dependencies = [
     {
         name: "bd-stylesheet",
         type: "style",
-        //url: `//voark.github.io/BD/dist/style.css`,
-        url: "http://127.0.0.1:5500/BD/dist/style.css",
+        url: `//voark.github.io/BD/dist/style.css`,
+        //url: "http://127.0.0.1:5500/BD/dist/style.css",
         //url: `//cdn.staticaly.com/gh/rauenzi/BetterDiscordApp/{{hash}}/dist/style.css`,
         backup: "//rauenzi.github.io/BetterDiscordApp/dist/style.css"
     }
