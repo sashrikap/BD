@@ -4,15 +4,15 @@ import BDV2 from "./v2";
 import Utils from "./utils";
 
 import BDEmote from "../ui/bdEmote";
+import BDEmoteHuge from "../ui/bdEmoteHuge";
 import { settings } from "cluster";
 
 function EmoteModule() {
     Object.defineProperty(this, "categories", {
         get: function() {
-            const cats = [];
-            for (const current in bdEmoteSettingIDs) {
-                //if (settingsCookie[bdEmoteSettingIDs[current]]) cats.push(current);
-                if (true) cats.push(current);
+            const cats = []; for (const current in bdEmoteSettingIDs) {
+                 //if (settingsCookie[bdEmoteSettingIDs[current]]) cats.push(current);
+                 if (true) cats.push(current);
             }
             return cats;
         }
@@ -136,7 +136,10 @@ EmoteModule.prototype.init = async function () {
                     }
                     else{
                         if (emoteName === 'sashu'){
-                            var emoteComponent = BDV2.react.createElement(BDEmote, {name: 'sashu', url: `https://voark.github.io/BD/data/custom_emotes/sashu.png`, modifier: emoteModifier});
+                            var emoteComponent = BDV2.react.createElement(BDEmoteHuge, {name: 'sashu', url: `https://voark.github.io/BD/data/custom_emotes/sashu.png`, modifier: emoteModifier});
+                        }
+                        else if (emoteName === 'howstheweatherdownthere'){
+                            var emoteComponent = BDV2.react.createElement(BDEmoteHuge, {name: 'Click urself', url: `https://voark.github.io/BD/data/custom_emotes/sashu.png`, modifier: emoteModifier});
                         }
                         else{
                             var emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});

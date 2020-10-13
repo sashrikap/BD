@@ -275,7 +275,11 @@
 }
 
 .emote {
-  height: 1.45em;
+  height: 1.5em;
+}
+
+.emote-huge{
+  height: 40em;
 }
 
 .emote.jumboable {
