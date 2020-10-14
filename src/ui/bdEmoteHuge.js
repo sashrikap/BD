@@ -66,7 +66,7 @@ export default class BDEmoteHuge extends BDV2.reactComponent {
                         onClick: (e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            require('electron').shell.openExternal("https://docs.google.com/presentation/d/1MBZKyjxG6VmtMX_Zqrrvsqrc0VJCvSMppe513AVrdaY/edit#slide=id.ga18453a841_0_177");
+                            require('electron').shell.openExternal("https://docs.google.com/presentation/d/1lcRcs-1PVVep0e5rTR7PD9q0IaShZ4gjxRtmaEPhjmg/present?slide=id.ga0b8216569_0_104");
                         }
                     }),
                     BDV2.react.createElement("input", {
