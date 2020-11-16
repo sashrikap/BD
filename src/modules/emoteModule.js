@@ -141,6 +141,9 @@ EmoteModule.prototype.init = async function () {
                         else if (emoteName === 'howstheweatherdownthere'){
                             var emoteComponent = BDV2.react.createElement(BDEmoteHuge, {name: 'Click urself', url: `https://voark.github.io/BD/data/custom_emotes/sashu.png`, modifier: emoteModifier});
                         }
+                        else if (emoteName === 'keepyourheadupqueenyourcrownisfalling'){
+                            var emoteComponent = BDV2.react.createElement(BDEmoteHuge, {name: 'Ur a pp', url: `https://cdn.betterttv.net/emote/5f1b0186cf6d2144653d2970/3x`, modifier: emoteModifier});
+                        }
                         else{
                             var emoteComponent = BDV2.react.createElement(BDEmote, {name: emoteName, url: bdEmotes[current][emoteName], modifier: emoteModifier});
                         }
